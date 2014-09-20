@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="3" failures="1" errors="0" time="0.040003" timestamp="2014-09-20T14:28:38+02:00">
+  <properties/>
+  <testcase classname="spec.controllers.index_controller_spec" name="IndexController GET #index responds successfully with an HTTP 200 status code" time="0.036003"/>
+  <testcase classname="spec.controllers.index_controller_spec" name="IndexController GET #index renders the index template" time="0.003000">
+    <failure message="expecting &lt;&quot;index&quot;&gt; but rendering with &lt;[&quot;index/public&quot;, &quot;layouts/application&quot;]&gt;" type="RSpec::Expectations::ExpectationNotMetError">
+      <![CDATA[expecting <"index"> but rendering with <["index/public", "layouts/application"]>
+./spec/controllers/index_controller_spec.rb:13:in `block (3 levels) in <top (required)>']]>
+    </failure>
+  </testcase>
+  <testcase classname="spec.helpers.index_helper_spec" name="IndexHelper add some examples to (or delete) c:/Users/boissonnat/Projects/sKiller/spec/helpers/index_helper_spec.rb" time="0.000000">
+    <skipped/>
+  </testcase>
+</testsuite>

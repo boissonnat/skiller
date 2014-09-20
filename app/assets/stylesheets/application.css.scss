@@ -1,0 +1,10 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Locals imports
+@import "sticky_footer";
+
+// Push the container after the navbar
+body > .page-content > .container {
+  padding: 60px 15px 0;
+}
