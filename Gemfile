@@ -11,11 +11,12 @@ gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-## UI : bootstrap with SASS
+## UI : bootstrap with SASS and FontAwesome
 ############################################################################################
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 
 ## JS : uglifier, coffeescript, jquery-rails, turbolinks, JSON
@@ -30,6 +31,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
+
+## User management : devise
+############################################################################################
+gem 'devise', '3.2'
 
 
 ## Development and Testing
