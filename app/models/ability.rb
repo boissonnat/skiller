@@ -17,6 +17,7 @@ class Ability
 
       ## QUIZZES
       can :read, Quiz
+      can :list, Quiz
       can :create, Quiz
       can :update, Quiz
       can :destroy, Quiz
@@ -31,6 +32,13 @@ class Ability
 
     end
 
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+    ##    Rights for EVERYONE         ##
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+
+    ## QUIZZES
+    can :read, Quiz
+    can :update, Quiz
 
   end
 end

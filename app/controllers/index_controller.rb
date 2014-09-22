@@ -5,4 +5,9 @@ class IndexController < ApplicationController
     render 'public'
   end
 
+  def thanks
+    render 'thanks'
+  end
+
+
 end

@@ -21,7 +21,7 @@
   <% @quizzes.each do |quiz| %>
       <tr>
         <td><%= quiz.candidate_email %></td>
-        <td>http://localhost:3000/quizzes/<%= quiz.key %></td>
+        <td>http://localhost:3000/quizzes/<%= quiz.slug %></td>
         <td>
           <% quiz.application_areas.each do |application_area| %>
               <span class="label label-default"><%= application_area.name %></span>

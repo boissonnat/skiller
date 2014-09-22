@@ -2,6 +2,6 @@
     <li><%= link_to 'Questions', questions_path %></li>
 <% end %>
 
-<% if can? :read, Quiz %>
+<% if can? :list, Quiz %>
     <li><%= link_to 'Quizzes', quizzes_path %></li>
 <% end %>

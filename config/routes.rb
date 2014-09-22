@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'set_as_incorrect', on: :member
   end
 
+  get '/thanks', to: 'index#thanks'
+
   # Root of the application => /
   root 'index#index'
 end
