@@ -21,6 +21,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @question.update_attributes(question_params)
+      flash[:notice] = 'Question successfully updated.'
+      redirect_to questions_path
+    else
+      render 'edit'
+    end
+  end
+
   private
   ## Helper methods
   def question_params

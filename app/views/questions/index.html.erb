@@ -9,6 +9,7 @@
   <thead>
   <tr>
     <th>Statement</th>
+    <th>Area</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -17,6 +18,7 @@
   <% @questions.each do |question| %>
       <tr>
         <td><%= question.statement %></td>
+        <td><%= question.application_area.name %></td>
         <td>
           <%= link_to 'Edit', edit_question_path(question) %>
         </td>
