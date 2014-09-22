@@ -8,6 +8,8 @@ class QuizzesController < ApplicationController
     if current_user
       render 'review'
     else
+      @quiz.status = Quiz::STATUS_STARTED
+      @quiz.save
       render 'pass'
     end
   end
@@ -32,6 +34,8 @@ class QuizzesController < ApplicationController
 
   def update
     if @quiz.update_attributes(quiz_params)
+      @quiz.status = Quiz::STATUS_FINISHED
+      @quiz.save
       flash[:notice] = 'Quiz successfully updated.'
     else
       flash[:alert] = 'An error occurs'

@@ -17,6 +17,10 @@ class Quiz < ActiveRecord::Base
   before_create :generate_key
   after_create :generate_quiz_questions
 
+  def note_on_twenty
+    (note * 20) / quiz_questions.size
+  end
+
   private
   def generate_key
     self.key = SecureRandom.base64(10)

@@ -1,23 +1,26 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3>A special quiz has been created for you</h3>
-  </div>
-</div>
+<h3>Hi <%= @quiz.candidate_email %></h3>
+
+<p>
+  A special quiz has been generated for you to show us your skills !<br/>
+  Take your time, pay attention to every detail and fill the following questions<br/>
+  Here is the skills you will need to have to excel in this test :
+</p>
 
 <ul class="list-inline">
-  <li class="text-muted">Skills required for this test : </li>
   <% @quiz.application_areas.each do |application_area| %>
       <li><span class="label label-default"><%= application_area.name %></span></li>
   <% end %>
 </ul>
 
+<hr/>
 <%= form_for @quiz, :role => 'form' do |quiz_form| %>
 
     <%= quiz_form.fields_for :quiz_questions do |quiz_questions_fields| %>
-        <label><%= quiz_questions_fields.object.question.statement %></label>
-        <%= quiz_questions_fields.text_area :answer, :class => 'form-control' %>
-
+        <div class="form-group">
+          <label class="control-label"><%= quiz_questions_fields.object.question.statement %></label>
+          <%= quiz_questions_fields.text_area :answer, :class => 'form-control' %>
+        </div>
     <% end %>
-
+    <hr/>
     <%= quiz_form.submit 'Save', :class => 'btn btn-primary' %>
 <% end %>

@@ -28,7 +28,7 @@
           <% end %>
         </td>
         <td><%= render partial: 'quizzes/render_status', locals: {quiz: quiz} %></td>
-        <td><%= quiz.note %> / 20</td>
+        <td><%= quiz.note_on_twenty %> / 20</td>
         <td>
           <%= link_to 'See', quiz_path(quiz) %>
         </td>
