@@ -11,7 +11,7 @@
   <% questions.each do |question| %>
       <tr>
         <td><%= question.statement %></td>
-        <td><span class="label label-default"><%= question.application_area.name %></span></td>
+        <td><span class="label label-default"><%= question.application_area.name if question.application_area %></span></td>
         <td>
           <% if can? :edit, question %>
             <%= link_to 'Edit', edit_question_path(question) %>
