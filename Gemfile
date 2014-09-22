@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.0'
 ## User management : devise
 ############################################################################################
 gem 'devise', '3.2'
+gem 'cancan', '1.6.10'
 
 
 ## Development and Testing

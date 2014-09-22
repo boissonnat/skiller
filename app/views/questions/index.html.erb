@@ -1,0 +1,26 @@
+<div class="page-header">
+  <span class="pull-right">
+    <%= link_to 'Add question', new_question_path %>
+  </span>
+  <h1>Question list</h1>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Statement</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.statement %></td>
+        <td>
+          <%= link_to 'Edit', edit_question_path(question) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
