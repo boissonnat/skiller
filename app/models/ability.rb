@@ -15,6 +15,12 @@ class Ability
       can :update, Question
       can :destroy, Question
 
+      ## QUIZZES
+      can :read, Quiz
+      can :create, Quiz
+      can :update, Quiz
+      can :destroy, Quiz
+
     end
 
 

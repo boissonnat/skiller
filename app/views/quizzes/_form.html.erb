@@ -1,0 +1,25 @@
+<%= render 'shared/validation_helper', :resource => @quiz %>
+
+<%= form_for @quiz, :role => 'form' do |f| %>
+
+    <div class="form-group">
+      <%= f.label :candidate_email, :class => 'control-label' %>
+      <%= f.text_field :candidate_email, :class => 'form-control', :placeholder => 'Eg : foo.bar@gmail.com' %>
+    </div>
+
+    <div class="form-group">
+      <legend>Application areas</legend>
+      <% ApplicationArea.all.each do |application_area| %>
+          <div class="checkbox">
+            <label>
+              <%= check_box_tag "quiz[application_area_ids][]", application_area.id, @quiz.application_areas.include?(application_area) %>
+              <%= application_area.name %>
+            </label>
+          </div>
+      <% end %>
+    </div>
+
+    <%= link_to 'Cancel', quizzes_path, :class => 'btn btn-danger' %>
+    <%= f.submit 'Save', :class => 'btn btn-primary' %>
+
+<% end %>

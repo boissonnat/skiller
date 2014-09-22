@@ -1,0 +1,34 @@
+<div class="page-header">
+  <span class="pull-right">
+    <%= link_to 'Generate quiz', new_quiz_path %>
+  </span>
+  <h1>List of quizzes</h1>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Candidate email</th>
+    <th>Public url</th>
+    <th>Application Area</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @quizzes.each do |quiz| %>
+      <tr>
+        <td><%= quiz.candidate_email %></td>
+        <td>http://localhost:3000/quizzes/<%= quiz.key %></td>
+        <td>
+          <% quiz.application_areas.each do |application_area| %>
+              <span class="label label-default"><%= application_area.name %></span>
+          <% end %>
+        </td>
+        <td>
+          -
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
