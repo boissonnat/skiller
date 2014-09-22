@@ -8,8 +8,8 @@ gem 'rails', '4.1.5'
 
 ## DATABASE
 ############################################################################################
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use pg as the database for Active Record
+gem 'pg'
 
 ## UI : bootstrap with SASS and FontAwesome
 ############################################################################################
