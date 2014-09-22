@@ -1,4 +1,6 @@
 class Quiz < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :key, use: :slugged
 
   STATUS_PENDING = 'Pending'
   STATUS_STARTED = 'Started'
