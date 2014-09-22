@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>Quiz generated for <%= @quiz.candidate_email %></h1>
+</div>
+
+<ul class="list-inline">
+  <li><strong>Skills required for this test : </strong></li>
+  <% @quiz.application_areas.each do |application_area| %>
+      <li><span class="label label-default"><%= application_area.name %></span></li>
+  <% end %>
+</ul>

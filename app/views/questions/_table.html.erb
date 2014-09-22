@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Statement</th>
+    <th>Application area</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% questions.each do |question| %>
+      <tr>
+        <td><%= question.statement %></td>
+        <td><span class="label label-default"><%= question.application_area.name %></span></td>
+        <td>
+          <% if can? :edit, question %>
+            <%= link_to 'Edit', edit_question_path(question) %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

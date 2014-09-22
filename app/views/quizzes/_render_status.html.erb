@@ -1,0 +1,12 @@
+<%
+   case quiz.status
+     when Quiz::STATUS_STARTED
+       css_class = 'warning'
+     when Quiz::STATUS_FINISHED
+       css_class = 'success'
+     else
+       css_class = 'danger'
+   end
+%>
+
+<span class="label label-<%=css_class%>"><%= quiz.status%>

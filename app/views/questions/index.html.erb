@@ -5,24 +5,4 @@
   <h1>List of questions</h1>
 </div>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th>Statement</th>
-    <th>Area</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.statement %></td>
-        <td><%= question.application_area.name %></td>
-        <td>
-          <%= link_to 'Edit', edit_question_path(question) %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'questions/table', locals: {questions: @questions} %>

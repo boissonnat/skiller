@@ -4,6 +4,10 @@ class QuizzesController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
 
+  def show
+
+  end
+
   def index
     @quizzes = Quiz.all
   end
