@@ -2,7 +2,7 @@ class CreateQuizzes < ActiveRecord::Migration
   def change
     create_table :quizzes do |t|
       t.string  :key
-      t.integer :note
+      t.integer :note, :default => 0
       t.string  :candidate_email
 
       t.timestamps

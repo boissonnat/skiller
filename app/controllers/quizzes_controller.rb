@@ -5,7 +5,9 @@ class QuizzesController < ApplicationController
   load_and_authorize_resource
 
   def show
-
+    if current_user
+      render 'review'
+    end
   end
 
   def index

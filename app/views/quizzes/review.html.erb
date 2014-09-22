@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-8">
+    <h3>Quiz generated for <%= @quiz.candidate_email %></h3>
+  </div>
+
+  <div class="col-md-4">
+    <h3 class=" pull-right text-center">
+      <%=@quiz.note %> <br/>
+      <small>note</small>
+    </h3>
+  </div>
+</div>
+
+<ul class="list-inline">
+  <li class="text-muted">Skills required for this test : </li>
+  <% @quiz.application_areas.each do |application_area| %>
+      <li><span class="label label-default"><%= application_area.name %></span></li>
+  <% end %>
+</ul>
+
+<% @quiz.quiz_questions.each do |quiz_question| %>
+
+    <div class="panel <%= quiz_question.is_correct ? 'panel-success' : 'panel-danger' %>">
+      <div class="panel-heading">
+        <div class="pull-right">
+          <% if can? :set_as_correct, quiz_question %>
+            <%= link_to 'Correct', set_as_correct_quiz_question_path(quiz_question) %>
+          <% end %>
+          <% if can? :set_as_incorrect, quiz_question %>
+              <%= link_to 'Incorrect', set_as_incorrect_quiz_question_path(quiz_question) %>
+          <% end %>
+        </div>
+        <h4><%= quiz_question.question.statement %></h4>
+      </div>
+      <div class="panel-body">
+        <p>
+            <% if quiz_question.answer %>
+                <%= quiz_question.answer %>
+            <% else %>
+                The candidate does not fill this answer
+            <% end %>
+        </p>
+        <p>
+            <strong>Expected answer : </strong><%= quiz_question.question.right_answer %>
+        </p>
+      </div>
+
+
+    </div>
+
+
+
+<% end %>

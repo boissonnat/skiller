@@ -12,6 +12,7 @@
     <th>Public url</th>
     <th>Application Area</th>
     <th>Status</th>
+    <th>Note</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -27,6 +28,7 @@
           <% end %>
         </td>
         <td><%= render partial: 'quizzes/render_status', locals: {quiz: quiz} %></td>
+        <td><%= quiz.note %> / 20</td>
         <td>
           <%= link_to 'See', quiz_path(quiz) %>
         </td>

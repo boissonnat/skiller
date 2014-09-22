@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140922095927) do
 
   create_table "quizzes", force: true do |t|
     t.string   "key"
-    t.integer  "note"
+    t.integer  "note",            default: 0
     t.string   "candidate_email"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -21,6 +21,14 @@ class Ability
       can :update, Quiz
       can :destroy, Quiz
 
+      ## QUIZ_QUESTIONS
+      can :set_as_correct, QuizQuestion do |q|
+        !q.is_correct
+      end
+      can :set_as_incorrect, QuizQuestion do |q|
+        q.is_correct
+      end
+
     end
 
 
