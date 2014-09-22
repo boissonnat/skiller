@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   private
   ## Helper methods
   def question_params
-    params.require(:question).permit(:application_area_id, :statement, :answer)
+    params.require(:question).permit(:application_area_id, :statement, :right_answer)
   end
 
 end

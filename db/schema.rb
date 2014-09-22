@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140922062216) do
 
   create_table "questions", force: true do |t|
     t.text     "statement"
-    t.text     "answer"
+    t.text     "right_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "application_area_id"
