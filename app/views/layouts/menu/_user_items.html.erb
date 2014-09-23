@@ -13,7 +13,10 @@
       </ul>
     </li>
 <% else %>
-    <li>
-      <%= link_to 'Sign in', new_user_session_path %>
+    <li class="<%= current_page?(new_user_registration_path) ? 'active' : '' %>">
+      <%= link_to 'Sign up', new_user_registration_path %>
+    </li>
+    <li class="<%= current_page?(new_user_session_path) ? 'active' : '' %>">
+      <%= link_to 'Login', new_user_session_path %>
     </li>
 <% end %>
