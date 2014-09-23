@@ -9,5 +9,12 @@
 /log/*.log
 /tmp
 
-# Ignore Rubymine files
-.idea/
+# Ignore other unneeded files.
+database.yml
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
