@@ -1,0 +1,29 @@
+<%= render 'shared/validation_helper', :resource => @organization %>
+
+<%= form_for @organization, :role => 'form' do |f| %>
+
+    <div class="form-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <%= f.text_field :name, :class => 'form-control', :placeholder => "Your company's name" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image_url, :class => 'control-label' %>
+      <%= f.text_field :image_url, :class => 'form-control', :placeholder => "Your company's logo" %>
+      <span class="help-block">
+        Hum... Ok, an image uploader would be great... But for now you will have to be happy with an url !
+      </span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :bio, :class => 'control-label' %>
+      <%= f.text_area :bio, :class => 'form-control', :placeholder => 'Tell us how great is your company' %>
+      <span class="help-block">
+        You have 500 characters
+      </span>
+    </div>
+
+    <%= link_to 'Cancel', root_path, :class => 'btn btn-default' %>
+    <%= f.submit 'Save', :class => 'btn btn-primary' %>
+
+<% end %>

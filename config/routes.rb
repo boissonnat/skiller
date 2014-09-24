@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'set_as_correct', on: :member
     get 'set_as_incorrect', on: :member
   end
+  resources   :organizations
 
   get '/thanks', to: 'index#thanks'
 

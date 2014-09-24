@@ -1,0 +1,17 @@
+<% content_for :title, 'Your organization' %>
+
+<div class="row">
+  <div class="col-md-4">
+    <img src="<%= @organization.image_url%>" class="img-thumbnail">
+  </div>
+
+  <div class="col-md-6">
+    <h4>
+      <%= @organization.name %>
+      <small> (Administrated by <strong><%= full_name(@organization.get_admin) %></strong>)</small>
+    </h4>
+    <p>
+      <%= @organization.bio %>
+    </p>
+  </div>
+</div>

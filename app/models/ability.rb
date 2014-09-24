@@ -4,6 +4,28 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+    ##    Rights for EVERYONE         ##
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+
+    ## QUIZZES
+    can :read, Quiz
+    can :update, Quiz
+
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+    ##    Rights for DEFAULT_USER     ##
+    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
+
+    if user.role? Role::DEFAULT
+
+      ## ORGANIZATION
+      can :create, Organization
+      can :read, Organization do |o|
+        o.users.include? user
+      end
+
+    end
+
     ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
     ##    Rights for ORGANIZATION_ADMIN users         ##
     ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
@@ -32,13 +54,10 @@ class Ability
 
     end
 
-    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
-    ##    Rights for EVERYONE         ##
-    ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
 
-    ## QUIZZES
-    can :read, Quiz
-    can :update, Quiz
+
+
+
 
   end
 end

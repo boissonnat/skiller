@@ -5,6 +5,20 @@
       </a>
       <ul class="dropdown-menu">
         <li>
+          <% if can? :read, current_user.organization %>
+              <%= link_to organization_path(current_user.organization) do %>
+                  <%= icon('users ') %>
+                  Your organization
+              <% end %>
+          <% else %>
+              <%= link_to new_organization_path do %>
+                  <%= icon('users ') %>
+                  Your organization
+              <% end %>
+          <% end %>
+        </li>
+        <li class="divider"></li>
+        <li>
           <%= link_to destroy_user_session_path, :method => :delete  do %>
               <i class="fa fa-sign-out"></i>
               Logout
