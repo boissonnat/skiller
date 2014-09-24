@@ -1,38 +1,30 @@
-<div class="page-header">
-  <span class="pull-right">
-    <%= link_to 'Generate quiz', new_quiz_path %>
-  </span>
-  <h1>List of quizzes</h1>
+<div class="well">
+  <table id="quizzesTable" class="table table-bordered table-condensed table-striped">
+
+    <thead>
+    <tr>
+      <th>Candidate email</th>
+      <th>Public url</th>
+      <th>Application Area</th>
+      <th>Status</th>
+      <th>Note</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @quizzes.each do |quiz| %>
+        <tr>
+          <td><%= quiz.candidate_email %></td>
+          <td><%= link_to quiz_url(quiz), quiz_path(quiz) %></td>
+          <td>
+            <% quiz.application_areas.each do |application_area| %>
+                <span class="label label-default"><%= application_area.name %></span>
+            <% end %>
+          </td>
+          <td><%= render partial: 'quizzes/render_status', locals: {quiz: quiz} %></td>
+          <td><%= quiz.note_on_twenty %> / 20</td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
-
-<table class="table">
-  <thead>
-  <tr>
-    <th>Candidate email</th>
-    <th>Public url</th>
-    <th>Application Area</th>
-    <th>Status</th>
-    <th>Note</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.candidate_email %></td>
-        <td><%= quiz_url(quiz) %></td>
-        <td>
-          <% quiz.application_areas.each do |application_area| %>
-              <span class="label label-default"><%= application_area.name %></span>
-          <% end %>
-        </td>
-        <td><%= render partial: 'quizzes/render_status', locals: {quiz: quiz} %></td>
-        <td><%= quiz.note_on_twenty %> / 20</td>
-        <td>
-          <%= link_to 'See', quiz_path(quiz) %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>

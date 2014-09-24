@@ -4,6 +4,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
+
 // header
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -14,6 +16,9 @@
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
+  }
+  ul.nav-pills {
+    padding-top: 23px;
   }
 }
 

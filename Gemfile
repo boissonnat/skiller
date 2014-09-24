@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 4.2.0'
+gem 'jquery-datatables-rails', '~> 2.2.3'
 
 
 ## JS : uglifier, coffeescript, jquery-rails, turbolinks, JSON
@@ -38,6 +39,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '3.2'
 gem 'cancan', '1.6.10'
 gem 'friendly_id', '~> 5.0.0'
+gem 'will_paginate'
 
 
 ## Development and Testing

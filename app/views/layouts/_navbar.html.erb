@@ -1,8 +1,25 @@
 <div class="container">
   <div class="header">
-    <ul class="nav nav-pills pull-right">
-      <%= render 'layouts/menu/user_items' %>
-    </ul>
-    <h3 class="text-muted"><%=link_to 'sKiller', root_path %></h3>
+    <div class="row">
+
+      <div class="col-md-1">
+        <h3 class="text-muted"><%=link_to 'sKiller', root_path %></h3>
+      </div>
+
+      <div class="col-md-7">
+        <ul class="nav nav-pills">
+          <%= render 'layouts/menu/actions_items' %>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <ul class="nav nav-pills pull-right">
+          <%= render 'layouts/menu/user_items' %>
+        </ul>
+      </div>
+    </div>
+
+
+
   </div>
 </div>
