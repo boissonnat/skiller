@@ -34,8 +34,16 @@ class Ability
       ## QUESTIONS
       can :read, Question
       can :create, Question
-      can :update, Question
+      can :update, Question do |question|
+        question.user && question.user.organization == user.organization
+      end
       can :destroy, Question
+      can :add_to_organization_repository, Question do |question|
+        (!user.organization.questions.include? question) && !question.is_private
+      end
+      can :remove_from_organization_repository, Question do |question|
+        (user.organization.questions.include? question) && !question.is_private
+      end
 
       ## QUIZZES
       can :read, Quiz

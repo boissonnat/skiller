@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :roles
+  has_many :questions
   belongs_to :organization
 
   before_create :set_default_role

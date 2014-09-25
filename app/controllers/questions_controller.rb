@@ -4,20 +4,28 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
 
-
   def index
-    @questions = Question.all
+    # Create the unused public questions
+    @unused_public_questions = []
+    Question.is_public.each do |public_question|
+      unless current_user.organization.questions.include?(public_question)
+        @unused_public_questions << public_question
+      end
+    end
   end
 
   def new
   end
 
   def create
-    if @question.save
-      flash[:notice] = 'Question successfully saved'
-      redirect_to questions_path
-    else
-      render 'new'
+    if @question.valid?
+      @question.organizations << current_user.organization
+      if @question.save
+        flash[:notice] = 'Question successfully saved'
+        redirect_to questions_path
+      else
+        render 'new'
+      end
     end
   end
 
@@ -31,6 +39,16 @@ class QuestionsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def add_to_organization_repository
+    @question.organizations << current_user.organization
+    redirect_to questions_path
+  end
+
+  def remove_from_organization_repository
+    @question.organizations.delete current_user.organization
+    redirect_to questions_path
   end
 
   private

@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140923205034) do
   end
 
   create_table "organizations_questions", id: false, force: true do |t|
-    t.integer "organizations_id"
-    t.integer "questions_id"
+    t.integer "organization_id"
+    t.integer "question_id"
   end
 
   create_table "questions", force: true do |t|
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140923205034) do
     t.datetime "updated_at"
     t.integer  "application_area_id"
     t.boolean  "is_private",          default: true
+    t.integer  "user_id"
   end
 
   create_table "quiz_questions", force: true do |t|

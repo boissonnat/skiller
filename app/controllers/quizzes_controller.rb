@@ -22,14 +22,16 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz.organization = current_user.organization
-    if @quiz.save
-      @quiz.slug = nil
-      @quiz.save!
-      flash[:notice] = 'Quiz successfully created.'
-      redirect_to @quiz
-    else
-      render 'new'
+    if @quiz.valid?
+      @quiz.organization = current_user.organization
+      if @quiz.save
+        @quiz.slug = nil
+        @quiz.save!
+        flash[:notice] = 'Quiz successfully created.'
+        redirect_to @quiz
+      else
+        render 'new'
+      end
     end
   end
 
