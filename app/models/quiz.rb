@@ -11,6 +11,7 @@ class Quiz < ActiveRecord::Base
 
   has_and_belongs_to_many :application_areas
   has_many :quiz_questions
+  belongs_to :organization
 
   accepts_nested_attributes_for :quiz_questions, allow_destroy: true
 

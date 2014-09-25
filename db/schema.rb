@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140923205034) do
     t.datetime "updated_at"
     t.string   "status",          default: "Pending"
     t.string   "slug"
+    t.integer  "organization_id"
   end
 
   add_index "quizzes", ["slug"], name: "index_quizzes_on_slug", unique: true, using: :btree

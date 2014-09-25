@@ -14,6 +14,8 @@ class CreateOrganizations < ActiveRecord::Migration
     end
 
     add_belongs_to :users, :organization
+    add_belongs_to :quizzes, :organization
+
     add_column :questions, :is_private, :boolean, :default => true
 
   end
