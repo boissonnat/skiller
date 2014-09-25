@@ -8,24 +8,31 @@
   <tbody>
   <% questions.each do |question| %>
       <tr>
-        <td><%= question.statement %></td>
+        <td>
+          <% if can? :edit, question %>
+              <%= link_to question.statement, edit_question_path(question) %>
+          <% else %>
+              <%= question.statement %>
+          <% end %>
+        </td>
         <td>
           <span class="label label-default">
             <%= question.application_area.name if question.application_area %>
           </span>
         </td>
-        <td>
-          <% if can? :edit, question %>
-            <%= link_to 'Edit', edit_question_path(question) %>
-          <% end %>
+        <td class="pull-right">
           <% if can? :add_to_organization_repository, question %>
               <%= form_tag(add_to_organization_repository_question_path(question), method: "post") do %>
-                  <%= submit_tag("Use it") %>
+                  <% button_tag(:class => 'btn btn-xs btn-success') do %>
+                      <%= icon('mail-forward') %>
+                  <% end %>
               <% end %>
           <% end %>
           <% if can? :remove_from_organization_repository, question %>
               <%= form_tag(remove_from_organization_repository_question_path(question), method: "post") do %>
-                  <%= submit_tag("Remove") %>
+                  <% button_tag(:class => 'btn btn-xs btn-danger') do %>
+                    <%= icon('mail-reply') %>
+                  <% end %>
               <% end %>
           <% end %>
         </td>
