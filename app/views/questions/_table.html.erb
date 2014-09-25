@@ -25,7 +25,7 @@
           <% end %>
           <% if can? :remove_from_organization_repository, question %>
               <%= form_tag(remove_from_organization_repository_question_path(question), method: "post") do %>
-                  <%= submit_tag("Remove it") %>
+                  <%= submit_tag("Remove") %>
               <% end %>
           <% end %>
         </td>

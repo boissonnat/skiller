@@ -30,7 +30,9 @@ class Quiz < ActiveRecord::Base
   def generate_quiz_questions
     self.application_areas.each do |application_area|
       application_area.questions.each do |question|
-        self.quiz_questions << QuizQuestion.create(quiz: self, question: question)
+        if question.organizations.include? self.organization
+          self.quiz_questions << QuizQuestion.create(quiz: self, question: question)
+        end
       end
     end
   end
