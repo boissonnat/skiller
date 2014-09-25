@@ -22,6 +22,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    @quiz.organization = current_user.organization
     if @quiz.save
       @quiz.slug = nil
       @quiz.save!
