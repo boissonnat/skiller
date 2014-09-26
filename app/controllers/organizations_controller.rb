@@ -28,6 +28,6 @@ class OrganizationsController < ApplicationController
   private
   ## Helper methods
   def organization_params
-    params.require(:organization).permit(:name, :bio, :image_url)
+    params.require(:organization).permit(:name, :bio, :image_url, :copy_public_question)
   end
 end
