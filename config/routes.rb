@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     get 'set_as_correct', on: :member
     get 'set_as_incorrect', on: :member
   end
-  resources   :organizations
+  resources   :organizations do
+    get 'parse_markdown', on: :member
+  end
   resources   :candidates
 
   get '/thanks', to: 'index#thanks'

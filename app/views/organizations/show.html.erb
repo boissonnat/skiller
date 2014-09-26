@@ -9,9 +9,10 @@
     <h4>
       <%= @organization.name %>
       <small> (Administrated by <strong><%= full_name(@organization.get_admin) %></strong>)</small>
+      <%= link_to icon('edit'), edit_organization_path(@organization) %>
     </h4>
     <p>
-      <%= @organization.bio %>
+      <%= markdown(@organization.bio) %>
     </p>
   </div>
 </div>

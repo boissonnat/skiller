@@ -1,5 +1,7 @@
 class OrganizationsController < ApplicationController
 
+  include ApplicationHelper
+
   before_filter :authenticate_user!
   load_and_authorize_resource
 
@@ -23,6 +25,18 @@ class OrganizationsController < ApplicationController
   end
 
   def update
+    if @organization.update_attributes(organization_params)
+      flash[:notice] = 'Organization successfully updated.'
+      redirect_to @organization
+    else
+      render 'edit'
+    end
+  end
+
+  def parse_markdown
+    if params[:markdown]
+      render :text => markdown(params[:markdown])
+    end
   end
 
   private

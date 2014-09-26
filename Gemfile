@@ -39,6 +39,7 @@ gem 'devise', '3.2'
 gem 'cancan', '1.6.10'
 gem 'friendly_id', '~> 5.0.0'
 gem 'will_paginate'
+gem 'redcarpet'
 
 
 ## Development and Testing

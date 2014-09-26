@@ -31,6 +31,11 @@ class Ability
     ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
     if user.role? Role::ORGANIZATION_ADMIN
 
+      ## ORGANIZATION
+      can :update, Organization
+      can :parse_markdown, Organization
+
+
       ## QUESTIONS
       can :read, Question
       can :create, Question
