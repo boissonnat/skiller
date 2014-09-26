@@ -2,20 +2,16 @@
 
 <%= form_for @question, :role => 'form' do |f| %>
 
+    <legend>Question's statement</legend>
     <div class="form-group">
-      <%= f.label :statement, :class => 'control-label' %>
-      <%= f.text_area :statement, :class => 'form-control', :placeholder => 'Write your statement' %>
-      <span class="help-block">
-        You have 500 characters
-      </span>
+      <%= render partial: 'shared/markdown_input_editor',
+                 locals: {form: f, field_name: :statement, markdown_value: @question.statement} %>
     </div>
 
+    <legend>Question's right answer</legend>
     <div class="form-group">
-      <%= f.label :right_answer, :class => 'control-label' %>
-      <%= f.text_area :right_answer, :class => 'form-control', :placeholder => 'Give the right answer' %>
-      <span class="help-block">
-        You have 500 characters
-      </span>
+      <%= render partial: 'shared/markdown_input_editor',
+                 locals: {form: f, field_name: :right_answer, markdown_value: @question.right_answer} %>
     </div>
 
     <div class="form-group">

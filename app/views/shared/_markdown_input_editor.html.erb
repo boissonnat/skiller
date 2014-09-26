@@ -23,11 +23,11 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div class="tab-pane active" id="dv-write" >
-    <%= form.text_area field_name, :placeholder => 'Your report here', :id => 'markdown-value', :class => 'form-control input-lg mk-without-top-radius', :rows => '8' %>
+    <%= form.text_area field_name, :placeholder => 'Type your markdown content', :id => 'markdown-value', :class => 'form-control input-lg mk-without-top-radius', :rows => '8' %>
   </div>
   <div class="tab-pane markdown-preview" id="dv-preview">
     <div id="body-preview" >
-      <%= markdown(markdown_value) %>
+      <%= markdown(markdown_value) if markdown_value %>
     </div>
   </div>
 </div>

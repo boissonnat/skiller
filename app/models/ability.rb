@@ -38,6 +38,7 @@ class Ability
 
       ## QUESTIONS
       can :read, Question
+      can :list, Question
       can :create, Question
       can :update, Question do |question|
         question.user && question.user.organization == user.organization
