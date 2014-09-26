@@ -16,9 +16,12 @@
 <%= form_for @quiz, :role => 'form' do |quiz_form| %>
 
     <%= quiz_form.fields_for :quiz_questions do |quiz_questions_fields| %>
+        <legend><%= markdown(quiz_questions_fields.object.question.statement) %></legend>
         <div class="form-group">
-          <label class="control-label"><%= quiz_questions_fields.object.question.statement %></label>
-          <%= quiz_questions_fields.text_area :answer, :class => 'form-control' %>
+
+          <%= render partial: 'shared/markdown_input_editor',
+                     locals: {form: quiz_questions_fields, field_name: :answer, markdown_value: quiz_questions_fields.object.answer} %>
+
         </div>
     <% end %>
     <hr/>

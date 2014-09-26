@@ -30,18 +30,18 @@
               <%= link_to 'Incorrect', set_as_incorrect_quiz_question_path(quiz_question) %>
           <% end %>
         </div>
-        <h4><%= quiz_question.question.statement %></h4>
+        <h4><%= markdown(quiz_question.question.statement) %></h4>
       </div>
       <div class="panel-body">
         <p>
             <% if quiz_question.answer %>
-                <%= quiz_question.answer %>
+                <%= markdown(quiz_question.answer) %>
             <% else %>
-                The candidate does not fill this answer
+                <strong>The candidate does not fill this answer</strong>
             <% end %>
         </p>
         <p>
-            <strong>Expected answer : </strong><%= quiz_question.question.right_answer %>
+            <strong>Expected answer : </strong><%= markdown(quiz_question.question.right_answer) %>
         </p>
       </div>
     </div>
