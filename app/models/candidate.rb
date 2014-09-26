@@ -1,6 +1,6 @@
 class Candidate < ActiveRecord::Base
 
-  validates :email, uniqueness: true
+  validates :email, :presence => true
 
   belongs_to :organization
   has_many :quizzes
