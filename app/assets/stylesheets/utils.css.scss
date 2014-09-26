@@ -8,7 +8,28 @@ span.big-red-icon {
   color: $brand-danger;
 }
 
+span.medium-green-icon {
+  font-size: 32px;
+  color: $brand-success;
+}
+
+span.medium-red-icon {
+  font-size: 32px;
+  color: $brand-danger;
+}
+
 ul.nav-pills {
   margin-bottom: 15px;
 }
 
+a.active-filter {
+  border-radius: 0.25em;
+  color: white;
+  display: inline;
+  line-height: 1;
+  padding: 5px 10px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  background-color: $brand-primary;
+}

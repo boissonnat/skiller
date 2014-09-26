@@ -15,7 +15,23 @@ class QuizzesController < ApplicationController
   end
 
   def index
-    @quizzes = current_user.organization.quizzes
+    @quizzes_pending =  current_user.organization.quizzes.pending
+    @quizzes_started =  current_user.organization.quizzes.started
+    @quizzes_finished =  current_user.organization.quizzes.finished
+
+    if params[:filter]
+      if params[:filter] == Quiz::STATUS_STARTED
+        @active = Quiz::STATUS_STARTED
+        @quizzes = @quizzes_started
+      else
+        @active = Quiz::STATUS_FINISHED
+        @quizzes = @quizzes_finished
+      end
+    else
+      @active = Quiz::STATUS_PENDING
+      @quizzes = @quizzes_pending
+    end
+
   end
 
   def new

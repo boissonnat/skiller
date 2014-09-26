@@ -18,6 +18,10 @@ class Quiz < ActiveRecord::Base
   after_create :generate_quiz_questions
   before_save :create_candidate_from_email
 
+  scope :pending, -> { where(status: STATUS_PENDING) }
+  scope :started, -> { where(status: STATUS_STARTED) }
+  scope :finished, -> { where(status: STATUS_FINISHED) }
+
   def note_on_twenty
     unless quiz_questions.empty?
       (note * 20) / quiz_questions.size

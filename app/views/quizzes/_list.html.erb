@@ -1,0 +1,31 @@
+
+<% quizzes.each_with_index do |quiz, index| %>
+
+    <div class="row">
+      <div class="col-md-1 text-center">
+          <span class="<%= quiz.note_on_twenty > 12 ? 'medium-green-icon' : 'medium-red-icon' %>">
+            <%= icon('trophy') %>
+            </span>
+        <br/>
+        <%= quiz.note_on_twenty %>/20
+      </div>
+
+      <div class="col-md-11">
+        <h4>
+          <%= link_to quiz_url(quiz), quiz_path(quiz) %>
+          <small class="pull-right">
+            <%= render partial: 'application_areas/display_in_label', locals: {application_areas: quiz.application_areas} %>
+          </small>
+        </h4>
+        <%= render partial:'quizzes/render_status', locals: {quiz: quiz} %>
+        by
+        <%= link_to quiz.candidate.email, edit_candidate_path(quiz.candidate) %>
+      </div>
+    </div>
+
+    <% if index < quizzes.size - 1 %>
+        <hr/>
+    <% end %>
+
+
+<% end %>

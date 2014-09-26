@@ -1,0 +1,7 @@
+<!--
+Display all application areas in bootstrap label. Attributes :
+    - application_areas : list of application areas to display
+-->
+<% application_areas.each do |application_area| %>
+    <span class="label label-default"><%= application_area.name %></span>
+<% end %>

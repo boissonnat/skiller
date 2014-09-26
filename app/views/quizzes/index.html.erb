@@ -1,1 +1,20 @@
-<%= render partial: 'quizzes/table', locals: {quizzes: @quizzes} %>
+<ul class="list-inline">
+  <li>Filter :</li>
+  <li class="active">
+    <%= link_to quizzes_path, class: @active == Quiz::STATUS_PENDING ? 'active-filter' : 'text-muted' do %>
+        pending <span class="badge"><%= @quizzes_pending.size %></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to quizzes_path(filter: Quiz::STATUS_STARTED), class: @active == Quiz::STATUS_STARTED ? 'active-filter' : 'text-muted' do %>
+        started <span class="badge"><%= @quizzes_started.size %></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to quizzes_path(filter: Quiz::STATUS_FINISHED), class: @active == Quiz::STATUS_FINISHED ? 'active-filter' : 'text-muted' do %>
+        finished <span class="badge"><%= @quizzes_finished.size %></span>
+    <% end %>
+  </li>
+</ul>
+<hr/>
+<%= render partial: 'quizzes/list', locals: {quizzes: @quizzes} %>
