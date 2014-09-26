@@ -57,8 +57,8 @@
     <div class="tab-content">
       <div class="tab-pane active" id="review">
         <%= form_for @candidate, :role => 'form' do |f| %>
-            <%= f.text_area :review, :class => 'form-control', :placeholder => 'What do you think about this candidate' %>
-
+            <%= render partial: 'shared/markdown_input_editor',
+                       locals: {form: f, field_name: :review, markdown_value: @candidate.review} %>
             <hr/>
 
             <%= link_to 'Cancel', questions_path, :class => 'btn btn-default' %>
