@@ -23,6 +23,7 @@ class QuizzesController < ApplicationController
 
   def create
     if @quiz.valid?
+      # Set the organization to the quiz
       @quiz.organization = current_user.organization
       if @quiz.save
         @quiz.slug = nil
@@ -49,7 +50,7 @@ class QuizzesController < ApplicationController
   private
   ## Helper methods
   def quiz_params
-    params.require(:quiz).permit(:candidate_email, :note, {:application_area_ids => []}, quiz_questions_attributes: [:id, :answer],)
+    params.require(:quiz).permit(:candidate_id, :new_candidate_email, :note, {:application_area_ids => []}, quiz_questions_attributes: [:id, :answer],)
   end
 
 end

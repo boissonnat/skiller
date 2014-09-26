@@ -60,6 +60,11 @@ class Ability
         q.is_correct
       end
 
+      ## CANDIDATES
+      can :update, Candidate do |candidate|
+        candidate.organization == user.organization
+      end
+
     end
 
 

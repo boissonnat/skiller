@@ -23,6 +23,16 @@
       </span>
     </div>
 
+    <% if @organization.id.blank? %>
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :copy_public_question %> Would you like to copy all the public questions to your repository
+          </label>
+        </div>
+    <% end %>
+
+    <hr/>
+
     <%= link_to 'Cancel', root_path, :class => 'btn btn-default' %>
     <%= f.submit 'Save', :class => 'btn btn-primary' %>
 

@@ -6,20 +6,25 @@ class Quiz < ActiveRecord::Base
   STATUS_STARTED = 'Started'
   STATUS_FINISHED = 'Finished'
 
-
-  validates :candidate_email, :presence => true
-
   has_and_belongs_to_many :application_areas
   has_many :quiz_questions
   belongs_to :organization
+  belongs_to :candidate
+  attr_accessor :new_candidate_email
 
   accepts_nested_attributes_for :quiz_questions, allow_destroy: true
 
   before_create :generate_key
   after_create :generate_quiz_questions
+  before_save :create_candidate_from_email
 
   def note_on_twenty
-    (note * 20) / quiz_questions.size
+    unless quiz_questions.empty?
+      (note * 20) / quiz_questions.size
+    else
+      0
+    end
+
   end
 
   private
@@ -35,5 +40,14 @@ class Quiz < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def create_candidate_from_email
+    if Candidate.find_by(:email => new_candidate_email)
+      self.candidate = Candidate.find_by(:email => new_candidate_email)
+    else
+      create_candidate(:email => new_candidate_email, :organization => self.organization) unless new_candidate_email.blank?
+    end
+
   end
 end

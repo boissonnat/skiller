@@ -2,13 +2,19 @@
 
 <%= form_for @quiz, :role => 'form' do |f| %>
 
+    <legend>Candidate</legend>
     <div class="form-group">
-      <%= f.label :candidate_email, :class => 'control-label' %>
-      <%= f.text_field :candidate_email, :class => 'form-control', :placeholder => 'Eg : foo.bar@gmail.com' %>
+      <label class="control-label">Pick a candidate in the list</label>
+
+      <%= f.collection_select :candidate_id, current_user.organization.candidates, :id, :email, {:prompt => "Select a candidate"}, {:class => 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Or create a new one by email</label>
+      <%= f.text_field :new_candidate_email, :class => 'form-control', :placeholder => 'Type the candidate email' %>
     </div>
 
+    <legend>Application areas</legend>
     <div class="form-group">
-      <legend>Application areas</legend>
       <% ApplicationArea.all.each do |application_area| %>
           <div class="checkbox">
             <label>
@@ -19,7 +25,9 @@
       <% end %>
     </div>
 
-    <%= link_to 'Cancel', quizzes_path, :class => 'btn btn-danger' %>
+    <hr/>
+
+    <%= link_to 'Cancel', quizzes_path, :class => 'btn btn-default' %>
     <%= f.submit 'Save', :class => 'btn btn-primary' %>
 
 <% end %>

@@ -1,0 +1,29 @@
+<%= render 'shared/validation_helper', :resource => @question %>
+
+<%= form_for @question, :role => 'form' do |f| %>
+
+    <div class="form-group">
+      <%= f.label :statement, :class => 'control-label' %>
+      <%= f.text_area :statement, :class => 'form-control', :placeholder => 'Write your statement' %>
+      <span class="help-block">
+        You have 500 characters
+      </span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :right_answer, :class => 'control-label' %>
+      <%= f.text_area :right_answer, :class => 'form-control', :placeholder => 'Give the right answer' %>
+      <span class="help-block">
+        You have 500 characters
+      </span>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :application_area, :class => 'control-label' %>
+      <%= collection_select(:question, :application_area_id, ApplicationArea.all, :id, :name, {}, {:class => 'form-control'}) %>
+    </div>
+
+    <%= link_to 'Cancel', questions_path, :class => 'btn btn-danger' %>
+    <%= f.submit 'Save', :class => 'btn btn-primary' %>
+
+<% end %>

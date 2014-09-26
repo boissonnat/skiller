@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'set_as_incorrect', on: :member
   end
   resources   :organizations
+  resources   :candidates
 
   get '/thanks', to: 'index#thanks'
 
