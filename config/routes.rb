@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/thanks', to: 'index#thanks'
 
+  get '/parse_markdown', to: 'parse_markdown#index'
+
   # Root of the application => /
   root 'index#index'
 end

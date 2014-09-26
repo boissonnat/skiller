@@ -12,16 +12,3 @@ ul.nav-pills {
   margin-bottom: 15px;
 }
 
-.with-background {
-  background-color: whitesmoke;
-  border: solid 1px #dddddd;
-  padding: 5px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  margin-bottom: -2px !important;
-}
-
-.without-top-radius {
-  border-top-left-radius: 0px !important;
-  border-top-right-radius: 0px !important;
-}

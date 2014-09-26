@@ -1,0 +1,36 @@
+<!--
+    Arguments
+     - form : the parent form where the input will be displayed
+     - field_name : the form input field name
+     - markdown_value : markdown value
+-->
+
+<!-- Nav tabs -->
+<div class="mk-with-background">
+      <span class="pull-right help-block">
+          I'm a <a href="#" data-toggle="modal" data-target="#markdownHelper">markdown editor</a>
+        </span>
+  <ul class="nav nav-pills">
+
+    <li class="active" id="lk-write"><a href="#dv-write" data-toggle="tab">Write</a></li>
+    <li id="lk-preview">
+      <a href="#dv-preview" data-toggle="tab"
+         onclick="update_markdown_test('markdown-value', 'body-preview', 'dv-preview', 'lk-preview', 'dv-write', 'lk-write')">Preview</a>
+    </li>
+  </ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="dv-write" >
+    <%= form.text_area field_name, :placeholder => 'Your report here', :id => 'markdown-value', :class => 'form-control input-lg mk-without-top-radius', :rows => '8' %>
+  </div>
+  <div class="tab-pane markdown-preview" id="dv-preview">
+    <div id="body-preview" >
+      <%= markdown(markdown_value) %>
+    </div>
+  </div>
+</div>
+
+<!-- Markdown sheetcheat -->
+<%= render 'shared/markdown_sheetcheat' %>
