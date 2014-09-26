@@ -40,7 +40,7 @@ gem 'cancan', '1.6.10'
 gem 'friendly_id', '~> 5.0.0'
 gem 'will_paginate'
 gem 'redcarpet'
-
+gem 'public_activity'
 
 ## Development and Testing
 ############################################################################################

@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
 
+  include PublicActivity::Model
+
   belongs_to :application_area
   has_many :quiz_questions
   has_and_belongs_to_many :organizations

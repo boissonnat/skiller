@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     !!self.roles.find_by_name(role)
   end
 
+  def coworkers_ids
+    self.organization.users
+  end
+
   private
   def set_default_role
     self.roles << Role.find_by!(name: Role::DEFAULT)

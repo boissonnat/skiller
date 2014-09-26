@@ -4,9 +4,10 @@ class IndexController < ApplicationController
   def index
     if current_user
       unless current_user.organization
-        flash[:notice] = 'You definitely should set your organization !'
+        render 'private'
+      else
+        redirect_to activities_path
       end
-      render 'private'
     else
       render 'public'
     end

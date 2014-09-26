@@ -45,6 +45,8 @@ class QuizzesController < ApplicationController
         @quiz.slug = nil
         @quiz.save!
         flash[:notice] = 'Quiz successfully created.'
+        # Publish activity
+        @quiz.create_activity :create, owner: current_user
         redirect_to @quiz
       else
         render 'new'
@@ -53,10 +55,10 @@ class QuizzesController < ApplicationController
   end
 
   def update
+    @quiz.status = Quiz::STATUS_FINISHED
     if @quiz.update_attributes(quiz_params)
-      @quiz.status = Quiz::STATUS_FINISHED
-      @quiz.save
       flash[:notice] = 'Quiz successfully updated.'
+      @quiz.create_activity :update, candidate: @quiz.candidate
     else
       flash[:alert] = 'An error occurs'
     end

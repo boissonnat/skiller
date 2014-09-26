@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     post 'add_to_organization_repository', on: :member
     post 'remove_from_organization_repository', on: :member
   end
-
   resources   :quizzes
   resources   :quiz_questions do
     get 'set_as_correct', on: :member
@@ -16,9 +15,9 @@ Rails.application.routes.draw do
     get 'parse_markdown', on: :member
   end
   resources   :candidates
+  resources   :activities
 
   get '/thanks', to: 'index#thanks'
-
   get '/parse_markdown', to: 'parse_markdown#index'
 
   # Root of the application => /

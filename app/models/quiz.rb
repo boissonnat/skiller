@@ -2,6 +2,8 @@ class Quiz < ActiveRecord::Base
   extend FriendlyId
   friendly_id :key, use: :slugged
 
+  include PublicActivity::Model
+
   STATUS_PENDING = 'Pending'
   STATUS_STARTED = 'Started'
   STATUS_FINISHED = 'Finished'
@@ -28,7 +30,6 @@ class Quiz < ActiveRecord::Base
     else
       0
     end
-
   end
 
   private
@@ -52,6 +53,5 @@ class Quiz < ActiveRecord::Base
     else
       create_candidate(:email => new_candidate_email, :organization => self.organization) unless new_candidate_email.blank?
     end
-
   end
 end
