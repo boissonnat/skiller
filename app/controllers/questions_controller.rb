@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
 
   def create
     if @question.valid?
+      @question.user = current_user
       @question.organizations << current_user.organization
       if @question.save
         flash[:notice] = 'Question successfully saved'
@@ -54,7 +55,7 @@ class QuestionsController < ApplicationController
   private
   ## Helper methods
   def question_params
-    params.require(:question).permit(:application_area_id, :statement, :right_answer)
+    params.require(:question).permit(:application_area_id, :is_private, :statement, :right_answer)
   end
 
 end

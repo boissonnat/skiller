@@ -19,6 +19,12 @@
       <%= collection_select(:question, :application_area_id, ApplicationArea.all, :id, :name, {}, {:class => 'form-control'}) %>
     </div>
 
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :is_private %> Don't share this question with the sKiller's community
+      </label>
+    </div>
+
     <%= link_to 'Cancel', questions_path, :class => 'btn btn-danger' %>
     <%= f.submit 'Save', :class => 'btn btn-primary' %>
 
