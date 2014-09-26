@@ -14,7 +14,7 @@
     <tbody>
         <% @quizzes.each do |quiz| %>
             <tr>
-              <td><%= quiz.candidate_email %></td>
+              <td><%= quiz.candidate.email %></td>
               <td><%= link_to quiz_url(quiz), quiz_path(quiz) %></td>
               <td>
                 <% quiz.application_areas.each do |application_area| %>

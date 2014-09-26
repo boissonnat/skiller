@@ -3,8 +3,10 @@
 <%= form_for @quiz, :role => 'form' do |f| %>
 
     <div class="form-group">
-      <%= f.label :candidate_email, :class => 'control-label' %>
-      <%= f.text_field :candidate_email, :class => 'form-control', :placeholder => 'Eg : foo.bar@gmail.com' %>
+      <%= f.label :candidate, :class => 'control-label' %>
+      <%= f.collection_select :candidate_id, current_user.organization.candidates, :id, :email, :prompt => "Select a candidate" %>
+      or create a new one :
+      <%= f.text_field :new_candidate_email, :class => 'form-control', :placeholder => 'Type the candidate email' %>
     </div>
 
     <div class="form-group">
