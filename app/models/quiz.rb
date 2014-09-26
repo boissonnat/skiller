@@ -19,7 +19,12 @@ class Quiz < ActiveRecord::Base
   before_save :create_candidate_from_email
 
   def note_on_twenty
-    (note * 20) / quiz_questions.size
+    unless quiz_questions.empty?
+      (note * 20) / quiz_questions.size
+    else
+      0
+    end
+
   end
 
   private

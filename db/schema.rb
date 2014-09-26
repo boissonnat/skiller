@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20140925211611) do
   end
 
   create_table "candidates", force: true do |t|
-    t.string   "firstName"
-    t.string   "lastName"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
+    t.text     "review"
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
