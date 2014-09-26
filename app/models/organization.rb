@@ -6,6 +6,7 @@ class Organization < ActiveRecord::Base
   has_and_belongs_to_many :questions
   has_many :users
   has_many :candidates
+  has_many :quizzes
   attr_accessor :copy_public_question
 
   before_save :set_organization_admin_add_questions

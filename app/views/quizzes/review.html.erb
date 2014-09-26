@@ -34,7 +34,7 @@
       </div>
       <div class="panel-body">
         <p>
-            <% if quiz_question.answer %>
+            <% if quiz_question.answer && quiz_question.answer != ''%>
                 <%= markdown(quiz_question.answer) %>
             <% else %>
                 <strong>The candidate does not fill this answer</strong>

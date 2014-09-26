@@ -15,7 +15,7 @@ class QuizzesController < ApplicationController
   end
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = current_user.organization.quizzes
   end
 
   def new

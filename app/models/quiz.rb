@@ -43,7 +43,7 @@ class Quiz < ActiveRecord::Base
   end
 
   def create_candidate_from_email
-    if Candidate.find_by(:email => new_candidate_email)
+    if self.organization.candidates.find_by(:email => new_candidate_email)
       self.candidate = Candidate.find_by(:email => new_candidate_email)
     else
       create_candidate(:email => new_candidate_email, :organization => self.organization) unless new_candidate_email.blank?
