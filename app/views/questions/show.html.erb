@@ -2,7 +2,11 @@
 
   <div class="col-md-8">
     <div class="well well-sm">
+      <h4><%= @question.title %></h4>
       <%= markdown(@question.statement) %>
+      <hr/>
+      <em><strong>Right answer</strong></em>
+      <%= markdown@question.right_answer %>
     </div>
   </div>
 
@@ -24,7 +28,3 @@
 
 </div>
 
-
-<h3>Right answer</h3>
-
-<%= markdown@question.right_answer %>

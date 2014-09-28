@@ -11,14 +11,22 @@
       <tr>
         <td>
           <% if can? :read, question %>
-              <%= link_to markdown(question.statement), question_path(question) %>
+              <%= link_to question.title, question_path(question) %>
           <% else %>
-              <%= markdown(question.statement) %>
+              <%= question.title %>
           <% end %>
         </td>
         <td>
           <span class="label label-default">
             <%= question.application_area.name if question.application_area %>
+          </span>
+          <br/>
+          <span class="label label-primary">
+            <%= question.quiz_questions.size %> times used
+          </span>
+          <br/>
+          <span class="label label-warning">
+            <%= number_to_percentage(question.get_answer_rate, precision: 0) %> answer rate
           </span>
         </td>
 

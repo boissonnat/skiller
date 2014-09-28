@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926203113) do
+ActiveRecord::Schema.define(version: 20140928075003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140926203113) do
     t.integer  "application_area_id"
     t.boolean  "is_private",          default: true
     t.integer  "user_id"
+    t.string   "title"
   end
 
   create_table "quiz_questions", force: true do |t|

@@ -18,6 +18,8 @@ class OrganizationsController < ApplicationController
       else
         render 'new'
       end
+    else
+      render 'new'
     end
   end
 
@@ -40,7 +42,7 @@ class OrganizationsController < ApplicationController
   end
 
   private
-  ## Helper methods
+## Helper methods
   def organization_params
     params.require(:organization).permit(:name, :bio, :image_url, :copy_public_question)
   end

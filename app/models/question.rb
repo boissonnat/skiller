@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
   has_and_belongs_to_many :organizations
   belongs_to :user
 
-  validates :statement, :presence => true
+  validates :title, :presence => true
   validates :right_answer, :presence => true
 
   scope :is_public, -> { where(is_private: false) }

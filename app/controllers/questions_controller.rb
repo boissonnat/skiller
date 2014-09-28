@@ -59,7 +59,7 @@ class QuestionsController < ApplicationController
   private
   ## Helper methods
   def question_params
-    params.require(:question).permit(:application_area_id, :is_private, :statement, :right_answer)
+    params.require(:question).permit(:title, :application_area_id, :is_private, :statement, :right_answer)
   end
 
 end

@@ -2,7 +2,12 @@
 
 <%= form_for @question, :role => 'form' do |f| %>
 
-    <legend>Question's statement</legend>
+    <div class="form-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <%= f.text_field :title, :class => 'form-control', :placeholder => "Question's title" %>
+    </div>
+
+    <legend>Give candidate more information</legend>
     <div class="form-group">
       <%= render partial: 'shared/markdown_input_editor',
                  locals: {form: f, field_name: :statement, markdown_value: @question.statement} %>
