@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def index
     # Create the unused public questions
     @unused_public_questions = []
-    Question.is_public.each do |public_question|
+    Question.is_public.order('created_at desc').each do |public_question|
       unless current_user.organization.questions.include?(public_question)
         @unused_public_questions << public_question
       end

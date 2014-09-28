@@ -12,9 +12,14 @@ class OrganizationsController < ApplicationController
     if @organization.valid?
       # Add the current user in the organization
       @organization.users << current_user
+
+
       if @organization.save
         flash[:notice] = 'Organization successfully saved'
         redirect_to @organization
+        if params[:copy_public_question]
+          @organization.questions << Question.is_public
+        end
       else
         render 'new'
       end

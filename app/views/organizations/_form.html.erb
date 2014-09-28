@@ -22,7 +22,7 @@
     <% if @organization.id.blank? %>
         <div class="checkbox">
           <label>
-            <%= f.check_box :copy_public_question %> Would you like to copy all the public questions to your repository
+            <%= check_box_tag :copy_public_question %> Would you like to copy all the public questions to your repository
           </label>
         </div>
     <% end %>

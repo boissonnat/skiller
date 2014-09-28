@@ -2,8 +2,13 @@
 
   <div class="col-md-8">
     <div class="well well-sm">
-      <h4><%= @question.title %></h4>
-      <%= markdown(@question.statement) %>
+      <h4>
+        <%= @question.title %>
+        <% if can? :edit, @question %>
+            <%= link_to icon('edit'), edit_question_path(@question) %>
+        <% end %>
+      </h4>
+      <%= markdown(@question.statement) if @question.statement %>
       <hr/>
       <em><strong>Right answer</strong></em>
       <%= markdown@question.right_answer %>

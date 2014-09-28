@@ -7,7 +7,7 @@ class Organization < ActiveRecord::Base
   has_many :users
   has_many :candidates
   has_many :quizzes
-  attr_accessor :copy_public_question
+  #attr_accessor :copy_public_question
 
   before_save :set_organization_admin_add_questions
 
@@ -24,10 +24,6 @@ class Organization < ActiveRecord::Base
     current_user = self.users.first!
     current_user.roles = [Role.find_by(name: Role::ORGANIZATION_ADMIN), Role.find_by(name: Role::DEFAULT)]
     current_user.save
-
-    if copy_public_question
-      self.questions << Question.is_public
-    end
 
   end
 end
