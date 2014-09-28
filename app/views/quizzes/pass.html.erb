@@ -16,7 +16,10 @@
 <%= form_for @quiz, :role => 'form' do |quiz_form| %>
 
     <%= quiz_form.fields_for :quiz_questions do |quiz_questions_fields| %>
-        <legend><%= markdown(quiz_questions_fields.object.question.statement) %></legend>
+        <legend><%= quiz_questions_fields.object.question.title %></legend>
+        <% if quiz_questions_fields.object.question.statement %>
+            <%= markdown(quiz_questions_fields.object.question.statement) %>
+        <% end %>
         <div class="form-group">
 
           <%= render partial: 'shared/markdown_input_editor',

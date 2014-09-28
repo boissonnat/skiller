@@ -30,7 +30,10 @@
               <%= link_to 'Incorrect', set_as_incorrect_quiz_question_path(quiz_question) %>
           <% end %>
         </div>
-        <h4><%= markdown(quiz_question.question.statement) %></h4>
+        <h4><%= quiz_question.question.title %></h4>
+        <% if quiz_question.question.statement %>
+            <%= markdown(quiz_question.question.statement) %>
+        <% end %>
       </div>
       <div class="panel-body">
         <p>
