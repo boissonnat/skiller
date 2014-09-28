@@ -58,7 +58,7 @@ class QuizzesController < ApplicationController
     @quiz.status = Quiz::STATUS_FINISHED
     if @quiz.update_attributes(quiz_params)
       flash[:notice] = 'Quiz successfully updated.'
-      @quiz.create_activity :update, candidate: @quiz.candidate
+      @quiz.create_activity :update, owner: @quiz.candidate
     else
       flash[:alert] = 'An error occurs'
     end

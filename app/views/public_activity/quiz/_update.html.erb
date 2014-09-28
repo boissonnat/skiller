@@ -1,1 +1,18 @@
-<%= activity.candidate.email %> has completed a quiz
+<div class="row">
+  <div class="col-md-1 text-center">
+      <span class="medium-icon blue">
+        <%= icon('thumbs-o-up') %>
+      </span>
+  </div>
+
+  <div class="col-md-11">
+    <h5>
+      <%= activity.owner.email %> has completed a <%= link_to 'quiz', quiz_path(Quiz.find(activity.trackable_id)) %>
+      <br/>
+      <small><%= time_ago_in_words(activity.created_at) %></small>
+    </h5>
+  </div>
+</div>
+
+
+

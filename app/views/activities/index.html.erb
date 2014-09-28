@@ -1,7 +1,27 @@
-<h1>Activity</h1>
+<div class="row">
 
-<% @activities.each do |activity| %>
-    <div class="activity">
-      <%= render_activity activity %>
+  <!-- Activity -->
+  <div class="col-md-7">
+    <div class="page-header">
+      <h3>Activity</h3>
     </div>
-<% end %>
+    <% @activities.each do |activity| %>
+        <div class="activity">
+          <%= render_activity activity %>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Last questions</h4>
+      </div>
+
+      <div class="panel-body">
+        <%= render partial: 'questions/table', locals: {title: '', questions: Question.is_public.order('created_at desc').first(5)} %>
+      </div>
+    </div>
+  </div>
+
+</div>

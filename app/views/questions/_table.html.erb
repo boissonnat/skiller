@@ -1,10 +1,11 @@
 <table class="table">
-  <thead>
-  <tr>
-    <th colspan="3"><%= title %></th>
-  </tr>
-  </thead>
-
+  <% if title != '' %>
+      <thead>
+      <tr>
+        <th colspan="3"><%= title %></th>
+      </tr>
+      </thead>
+  <% end %>
   <tbody>
   <% questions.each do |question| %>
       <tr>
@@ -12,7 +13,7 @@
           <% if can? :edit, question %>
               <%= link_to question.statement, edit_question_path(question) %>
           <% else %>
-              <%= question.statement %>
+              <%= markdown(question.statement) %>
           <% end %>
         </td>
         <td>
@@ -20,6 +21,7 @@
             <%= question.application_area.name if question.application_area %>
           </span>
         </td>
+
         <td class="pull-right">
           <% if can? :add_to_organization_repository, question %>
               <%= form_tag(add_to_organization_repository_question_path(question), method: "post") do %>
@@ -31,7 +33,7 @@
           <% if can? :remove_from_organization_repository, question %>
               <%= form_tag(remove_from_organization_repository_question_path(question), method: "post") do %>
                   <% button_tag(:class => 'btn btn-xs btn-danger') do %>
-                    <%= icon('mail-reply') %>
+                      <%= icon('mail-reply') %>
                   <% end %>
               <% end %>
           <% end %>

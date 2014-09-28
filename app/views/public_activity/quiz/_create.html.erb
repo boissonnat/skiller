@@ -1,1 +1,15 @@
-<%= activity.owner.email %> has generated a new quiz
+<div class="row">
+  <div class="col-md-1 text-center">
+      <span class="medium-icon blue">
+        <%= icon('gears') %>
+      </span>
+  </div>
+
+  <div class="col-md-11">
+    <h5>
+      <%= activity.owner.email %> has generated a new <%= link_to 'quiz', quiz_path(Quiz.find(activity.trackable_id)) %>
+      <br/>
+      <small><%= time_ago_in_words(activity.created_at) %></small>
+    </h5>
+  </div>
+</div>

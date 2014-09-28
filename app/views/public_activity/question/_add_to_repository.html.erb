@@ -1,1 +1,18 @@
-<%= activity.owner.email %> has added a question to your organization's repository
+<div class="row">
+  <div class="col-md-1 text-center">
+      <span class="medium-icon green">
+        <%= icon('mail-forward') %>
+      </span>
+  </div>
+
+  <div class="col-md-11">
+    <h5>
+      <%= activity.owner.email %>
+      has added a
+      <%= link_to 'question', question_path(Question.find(activity.trackable_id)) %>
+      to your organization's repository
+      <br/>
+      <small><%= time_ago_in_words(activity.created_at) %></small>
+    </h5>
+  </div>
+</div>

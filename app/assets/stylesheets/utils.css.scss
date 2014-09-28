@@ -1,21 +1,20 @@
-span.big-green-icon {
+span.big-icon {
   font-size: 64px;
+}
+span.medium-icon {
+  font-size: 32px;
+}
+
+.green {
   color: $brand-success;
 }
 
-span.big-red-icon {
-  font-size: 64px;
-  color: $brand-danger;
+.red {
+  color: $brand-danger
 }
 
-span.medium-green-icon {
-  font-size: 32px;
-  color: $brand-success;
-}
-
-span.medium-red-icon {
-  font-size: 32px;
-  color: $brand-danger;
+.blue {
+  color: $brand-primary
 }
 
 ul.nav-pills {

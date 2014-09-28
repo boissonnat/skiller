@@ -4,7 +4,7 @@ class IndexController < ApplicationController
   def index
     if current_user
       unless current_user.organization
-        render 'private'
+        redirect_to new_organization_path
       else
         redirect_to activities_path
       end
