@@ -13,4 +13,12 @@ class Question < ActiveRecord::Base
   scope :is_public, -> { where(is_private: false) }
   scope :is_private, -> { where(is_private: true) }
 
+  def get_answer_rate
+    rate = self.quiz_questions.is_correct.size
+    if rate > 0
+      return (rate * 100) / self.quiz_questions.size
+    end
+    rate
+  end
+
 end

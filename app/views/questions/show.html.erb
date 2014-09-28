@@ -1,1 +1,30 @@
-<%= markdown(@question.statement) %>
+<div class="row">
+
+  <div class="col-md-8">
+    <div class="well well-sm">
+      <%= markdown(@question.statement) %>
+    </div>
+  </div>
+
+  <div class="col-md-2 text-center">
+    <span class="big-icon blue">
+      <%= @question.quiz_questions.size %>
+    </span>
+    <br/>
+    times used in quiz
+  </div>
+
+  <div class="col-md-2 text-center">
+    <span class="big-icon blue">
+      <%= number_to_percentage(@question.get_answer_rate, precision: 0) %>
+    </span>
+    <br/>
+    right answer rate
+  </div>
+
+</div>
+
+
+<h3>Right answer</h3>
+
+<%= markdown@question.right_answer %>

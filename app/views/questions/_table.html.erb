@@ -10,8 +10,8 @@
   <% questions.each do |question| %>
       <tr>
         <td>
-          <% if can? :edit, question %>
-              <%= link_to question.statement, edit_question_path(question) %>
+          <% if can? :read, question %>
+              <%= link_to markdown(question.statement), question_path(question) %>
           <% else %>
               <%= markdown(question.statement) %>
           <% end %>
