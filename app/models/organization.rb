@@ -25,8 +25,6 @@ class Organization < ActiveRecord::Base
     current_user.roles = [Role.find_by(name: Role::ORGANIZATION_ADMIN), Role.find_by(name: Role::DEFAULT)]
     current_user.save
 
-    puts "CALLED CALLED CALLED"
-
     if copy_public_question
       self.questions << Question.is_public
     end
