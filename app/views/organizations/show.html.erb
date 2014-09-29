@@ -35,20 +35,34 @@
         </div>
         <h4>Organization's user</h4>
       </div>
-    <table class="table">
-      <tbody>
-      <% @organization.users.each do |user| %>
-          <tr>
-            <td><%= user.email %></td>
-            <td><%= render partial: 'users/display_status', locals: {user: user} %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+      <table class="table">
+        <tbody>
+        <% @organization.users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= render partial: 'users/display_status', locals: {user: user} %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <div class="tab-pane" id="candidates">
-    Candidate list here
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Organization's candidate</h4>
+      </div>
+      <table class="table">
+        <tbody>
+        <% @organization.candidates.each do |candidate| %>
+            <tr>
+              <td><%= candidate.email %></td>
+              <td>average note : <%= candidate.average_note %>/20</td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
