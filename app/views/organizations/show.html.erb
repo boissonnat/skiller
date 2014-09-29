@@ -16,3 +16,39 @@
     </p>
   </div>
 </div>
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist" style="margin: 25px 0;">
+  <li class="active"><a href="#users" role="tab" data-toggle="tab">Organization's users</a></li>
+  <li><a href="#candidates" role="tab" data-toggle="tab">Organization's candidate</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="users">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="pull-right">
+          <%= link_to icon('send') + ' Invite collaborator', new_user_invitation_path, class: 'btn btn-primary' %>
+        </div>
+        <h4>Organization's user</h4>
+      </div>
+    <table class="table">
+      <tbody>
+      <% @organization.users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= render partial: 'users/display_status', locals: {user: user} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="candidates">
+    Candidate list here
+  </div>
+</div>

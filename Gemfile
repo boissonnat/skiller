@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.0'
 ## User management : devise
 ############################################################################################
 gem 'devise', '3.2'
+gem 'devise_invitable'
 gem 'cancan', '1.6.10'
 gem 'friendly_id', '~> 5.0.0'
 gem 'will_paginate'

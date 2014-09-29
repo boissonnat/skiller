@@ -1,0 +1,15 @@
+<!--
+    Display user's status depending on its invitation acceptation (except for the organization admin).
+    Attributes :
+        - user : the user.
+-->
+
+<% if user.role?(Role::ORGANIZATION_ADMIN) %>
+    <span class="label label-primary">ADMIN</span>
+<% else %>
+    <% if user.invitation_accepted_at %>
+        <span class="label label-success">active</span>
+    <% else %>
+        <span class="label label-warning">pending</span>
+    <% end %>
+<% end %>

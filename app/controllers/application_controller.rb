@@ -12,5 +12,12 @@ class ApplicationController < ActionController::Base
     resource = controller_path.singularize.gsub('/', '_').to_sym
     method = "#{resource}_params"
     params[resource] &&= send(method) if respond_to?(method, true)
+
+    if devise_controller?
+      # Add organization as parameter to invitation
+      devise_parameter_sanitizer.for(:invite).concat [:organization_id]
+    end
+
+
   end
 end
