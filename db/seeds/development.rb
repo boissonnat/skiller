@@ -16,6 +16,7 @@ end
 ApplicationArea.find_or_create_by(name: 'Java')
 ApplicationArea.find_or_create_by(name: 'Php')
 ApplicationArea.find_or_create_by(name: 'Scrum')
+
 ApplicationArea.find_or_create_by(name: 'PM')
 ApplicationArea.find_or_create_by(name: 'Misc')
 

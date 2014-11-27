@@ -51,7 +51,6 @@ group :development, :test do
   gem 'rspec_junit_formatter'
 end
 
-
 group :test do
   gem 'faker', '1.4.0'
   gem 'capybara', '2.4.1'

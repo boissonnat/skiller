@@ -1,14 +1,14 @@
 .mk-with-background {
-  background-color: whitesmoke;
-  border: solid 1px #dddddd;
-  padding: 5px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  margin-bottom: -2px !important;
-  ul {
-    margin-bottom: 0px !important;
-  }
-}
+   background-color: whitesmoke;
+   border: solid 1px #dddddd;
+   padding: 5px;
+   border-top-left-radius: 3px;
+   border-top-right-radius: 3px;
+   margin-bottom: -2px !important;
+   ul {
+     margin-bottom: 0px !important;
+   }
+ }
 
 .mk-without-top-radius {
   border-top-left-radius: 0px !important;
